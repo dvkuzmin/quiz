@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="main-field">
+        {% for q in page_obj %}
+        <form action="{% url 'handle_answer' q.test_id %}" method="post">
+            {% csrf_token %}
+             <h1>{{ q.question_text }}</h1>
+            <h2 class="error">{{ error }}</h2>
+            {% for answer in q.answer_set.all %}
+                <div class="checkbox">
+                    <input type="checkbox" name="{{ answer.id }}" class="answer" id="{{ forloop.counter }}">
+                    <label for="{{ forloop.counter }}">{{ answer.answer_text }}</label>
+                </div>
+                <input type="hidden" name="question" value="{{ q.pk }}">
+                <input type="hidden" name="user_test_id" value="{{ user_test_id }}">
+            {% endfor %}
+        {% if page_obj.has_next %}
+        <input type="hidden" name="next_page" value="{{ page_obj.next_page_number }}">
+        {% endif %}
+        <input class="button-4" type="submit">
+        </form>
+        {% endfor %}
+    </div>
+{% endblock %}

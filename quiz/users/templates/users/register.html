@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="main-field">
+<h1 class="signup">Авторизация</h1>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            {{ error|escape }}
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        {{ error|escape }}
+    {% endfor %}
+{% endif %}
+<form action="" method="post">
+        <div class="register-fields">
+        {% csrf_token %}
+            {% for f in form %}
+            <p class="register-field">{{ f }}</p>
+            {% endfor %}
+            <button type="submit" class="button-4" role="button">Зарегистрировать</button>
+        </div>
+</form>
+</div>
+{% endblock %}

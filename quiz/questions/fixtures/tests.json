@@ -1,0 +1,16 @@
+[
+  {
+    "model": "questions.testset",
+    "pk": 1,
+    "fields": {
+      "name": "Автомобили"
+    }
+  },
+  {
+    "model": "questions.testset",
+    "pk": 2,
+    "fields": {
+      "name": "Программирование"
+    }
+  }
+]

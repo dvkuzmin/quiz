@@ -1,0 +1,10 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="main-field">
+    {% for t in tests %}
+        <div class="test-button select-test"><a href="{% url 'questions' t.pk %}">{{ t }}</a></div>
+    {% endfor %}
+    </div>
+{% endblock %}

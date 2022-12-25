@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="main-field">
+        {% if not request.user.is_authenticated %}
+        <p>Это сервис по прохождению тестов на различные темы. Зарегстрируйтесь, чтобы начать.</p>
+        <div class="register">Зарегистрироваться</div>
+        <div class="login">Войти</div>
+        {% else %}
+        <p>Добро пожаловать на наш сервис, где вы можете пройти тесты по интересующей вас теме! Нажмите СТАРТ, чтобы начать тестирование!</p>
+        <div class="test-button">Старт</div>
+        {% endif %}
+    </div>
+{% endblock %}

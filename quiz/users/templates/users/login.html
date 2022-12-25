@@ -1,0 +1,17 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block content %}
+<form action="" method="post">
+        <div class="main-field">
+        <h1 class="signup">Войти</h1>
+        <div class="register-fields">
+        {% csrf_token %}
+            {% for f in form %}
+            <p class="register-field">{{ f }}</p>
+            {% endfor %}
+            <button class="button-4" role="button">Войти</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

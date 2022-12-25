@@ -1,0 +1,11 @@
+{% extends "users/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="main-field">
+      <h1>Результаты</h1>
+      <p>правильных ответов - {{ right }}</p>
+      <p>неправильных ответов - {{ wrong }}</p>
+      <p>Процент правильных ответов: {{ right_answer_percentage }}</p>
+    </div>
+{% endblock %}
