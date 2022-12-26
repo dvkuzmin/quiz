@@ -13,9 +13,7 @@ services:
     env_file: .env
     command: >
       sh -c 'python manage.py migrate &&
-      python manage.py loaddata tests &&
-      python manage.py loaddata questions &&
-      python manage.py loaddata answers &&
+      python manage.py loaddata tests questions answers &&
       python manage.py runserver 0.0.0.0:8000'
     links:
       - db
